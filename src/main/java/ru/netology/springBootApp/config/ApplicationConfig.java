@@ -13,13 +13,13 @@ public class ApplicationConfig {
 
     @Bean
     @ConditionalOnProperty(prefix = "netology.profile", name = "dev")
-    public SystemProfile prodProfile() {
+    public SystemProfile devProfile() {
         return new DevProfile();
     }
 
     @Bean
-    @ConditionalOnMissingBean(name = "prodProfile")
-    public SystemProfile devProfile() {
+    @ConditionalOnMissingBean(name = "devProfile")
+    public SystemProfile prodProfile() {
         return new ProductionProfile();
     }
 }
